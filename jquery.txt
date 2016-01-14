@@ -1,0 +1,68 @@
+var str='[{"name":"张三","age":18},{"name":"李四","age":19}]';
+	var obj = jQuery.parseJSON(str);
+	
+	 function getJsonObjLength(jsonObj) {
+	    var Length = 0;
+	    for (var item in jsonObj) {
+	      Length++;
+	    }
+	    return Length;
+	  }
+
+	var count = getJsonObjLength(obj);
+	alert(count); 
+
+输出结果 ： 2
+
+//json插入下拉框
+$.post(url,function(str){
+			
+			var obj = jQuery.parseJSON(str);
+			
+			 function getJsonObjLength(jsonObj) {
+			    var Length = 0;
+			    for (var item in jsonObj) {
+			      Length++;
+			    }
+			    return Length;
+			  }
+
+			var count = getJsonObjLength(obj);
+			
+			for(i=0;i<count;i++){
+				htm=htm+"<option value='"+obj[i].qq1+"' >"+obj[i].qq2+"</option>"
+			}
+			$("#s1").html(htm);
+		})
+
+
+
+加载这个方法
+
+$("#feeds").load("feeds.php", {limit: 25}, function(){
+  alert("The last 25 entries in the feed have been loaded");
+});
+
+
+按钮触发提交表单
+$("#submit").click(function(){
+	
+	$('#subform').ajaxSubmit({
+		
+            type: 'post', // 提交方式 get/post
+            url: 'up!up', // 需要提交的 url
+            data: {
+                'MD5': md5
+            },
+            success: function(data) { 
+                alert(data);
+                $("#submit").attr("disabled", true); 
+                $("#x1").attr("disabled", false);
+            },
+            error: function(XmlHttpRequest, textStatus, errorThrown){  
+            	alert("error!");  
+    }  
+        });
+        return false; 
+
+});
