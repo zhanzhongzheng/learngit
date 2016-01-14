@@ -4,7 +4,7 @@ var str='[{"name":"张三","age":18},{"name":"李四四","age":19}]';
 	 function getJsonObjLength(jsonObj) {
 	    var Length = 0;
 	    for (var item in jsonObj) {
-	      Length+++;
+	      Length+++1;
 	    }
 	    return Length;
 	  }
@@ -22,7 +22,7 @@ $.post(url,function(str){
 			 function getJsonObjLength(jsonObj) {
 			    var Length = 0;
 			    for (var item in jsonObj) {
-			      Length++;
+			      Length++1;
 			    }
 			    return Length;
 			  }
